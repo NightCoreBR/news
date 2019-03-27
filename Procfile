@@ -1,1 +1,1 @@
-worker: python anuncio.py
+worker: python bot.py
