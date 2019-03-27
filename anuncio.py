@@ -79,4 +79,4 @@ async def on_message(message):
             except:
                 pass
 
-client.run(process.env.token)
+client.run(str(os.environ.get('BOT_TOKEN')))
