@@ -1,2 +1,5 @@
-discord
+adiscord
 asyncio
+Pymoe
+youtube_dl
+pip
