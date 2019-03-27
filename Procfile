@@ -1,1 +1,1 @@
-woeker:anuncio.py
+worker:python anuncio.py
