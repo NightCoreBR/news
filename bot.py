@@ -24,10 +24,10 @@ async def on_ready():
     print('Logado como:\n{0} (ID: {0.id})'.format(client.user))
     await client.change_presence(game=discord.Game(name='Night Core', type=1, url='https://www.twitch.tv/hmmmm'), status='streaming')
 # -----------------------------------------
-@client.event
-async def on_message(message):
-    if message.content.startswith(f'{bot.user.mention}'):
-        await bot.send_message(message.channel, f'para ajuda use =ajuda :D ')
+#@client.event
+#async def on_message(message):
+#    if message.content.startswith(f'{bot.user.mention}'):
+#        await bot.send_message(message.channel, f'para ajuda use =ajuda :D ')
 @client.event
 async def on_message(message):
     if message.content.startswith('=ajuda'):
