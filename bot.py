@@ -26,6 +26,10 @@ async def on_ready():
 # -----------------------------------------
 @client.event
 async def on_message(message):
+    if message.content.startswith(f'{bot.user.mention} prefix'):
+        await bot.send_message(message.channel, f'para ajuda use =ajuda :D ')
+@client.event
+async def on_message(message):
     if message.content.startswith('=ajuda'):
         embed = discord.Embed(title='Informações',description='**Sou um bot criado para enviar mensagens no DM de todos membros do servidor**\n\nPara me utilizar é facil, digite (=setar [url].png) a url da imagem que deve ser terminada em .png é deve ser exibida no chat do discord.\n\nQuando setar a imagem digite (c!anuncio [msg]), muito facil não acha ?',color=COR)
         embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/460869727129174027/461766170127892480/bot_png.png')
