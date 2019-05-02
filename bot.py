@@ -26,7 +26,7 @@ async def on_ready():
 # -----------------------------------------
 @client.event
 async def on_message(message):
-    if message.content.startswith(f'{bot.user.mention} prefix'):
+    if message.content.startswith(f'{bot.user.mention}'):
         await bot.send_message(message.channel, f'para ajuda use =ajuda :D ')
 @client.event
 async def on_message(message):
