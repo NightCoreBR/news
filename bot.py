@@ -6,14 +6,12 @@ import asyncio
 import random
 import requests
 import os
-
 # -----------------------------------------
 #               VARIAVEIS
 # -----------------------------------------
 COR = 0x9b00fc
 client = discord.Client()
 #token = "TOKEN SEU AQUI"
-#
 cargo = "."
 
 # -----------------------------------------
@@ -22,16 +20,16 @@ cargo = "."
 @client.event
 async def on_ready():
     print('Logado como:\n{0} (ID: {0.id})'.format(client.user))
-    await client.change_presence(game=discord.Game(name='Night Core', type=1, url='https://www.twitch.tv/hmmmm'), status='streaming')
+    await client.change_presence(game=discord.Game(name='Night Core (Near)', type=1, url='https://www.twitch.tv/hmmmm'), status='streaming')
 # -----------------------------------------
-#@client.event
-#async def on_message(message):
-#    if message.content.startswith(f'{bot.user.mention}'):
-#        await bot.send_message(message.channel, f'para ajuda use =ajuda :D ')
+@client.event
+async def on_message(message):
+    if message.content.startswith(f'{bot.user.mention}'):
+        await bot.send_message(message.channel, f'para ajuda use =ajuda :D ')
 @client.event
 async def on_message(message):
     if message.content.startswith('=ajuda'):
-        embed = discord.Embed(title='Informações',description='**Sou um bot criado para enviar mensagens no DM de todos membros do servidor**\n\nPara me utilizar é facil, digite (=setar [url].png) a url da imagem que deve ser terminada em .png é deve ser exibida no chat do discord.\n\nQuando setar a imagem digite (c!anuncio [msg]), muito facil não acha ?',color=COR)
+        embed = discord.Embed(title='Informações',description='**Sou um bot criado para enviar mensagens no DM de todos membros do servidor**\n\nPara me utilizar é facil, digite (c!setar [url].png) a url da imagem que deve ser terminada em .png é deve ser exibida no chat do discord.\n\nQuando setar a imagem digite (c!anuncio [msg]), muito facil não acha ?',color=COR)
         embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/460869727129174027/461766170127892480/bot_png.png')
         await client.send_message(message.channel, embed=embed)
     if message.content.lower().startswith('=deletar'):
@@ -86,4 +84,6 @@ async def on_message(message):
                 s += 1
             except:
                 pass
+
 client.run(str(os.environ.get('BOT_TOKEN')))
+
