@@ -6,7 +6,7 @@ import asyncio
 import random
 import requests
 import os
-
+ 
 # -----------------------------------------
 #               VARIAVEIS
 # -----------------------------------------
@@ -15,7 +15,7 @@ client = discord.Client()
 #token = "TOKEN SEU AQUI"
 #
 cargo = "."
-
+ 
 # -----------------------------------------
 #                  CODE
 # -----------------------------------------
@@ -26,6 +26,9 @@ async def on_ready():
 # -----------------------------------------
 @client.event
 async def on_message(message):
+    if message.content.lower()startswith('<@id do bot'):
+        await client.send_message(message.channel, "Mensagem")
+ 
     if message.content.startswith('=ajuda'):
         embed = discord.Embed(title='Informações',description='**Sou um bot criado para enviar mensagens no DM de todos membros do servidor**\n\nPara me utilizar é facil, digite (=setar [url].png) a url da imagem que deve ser terminada em .png é deve ser exibida no chat do discord.\n\nQuando setar a imagem digite (c!anuncio [msg]), muito facil não acha ?',color=COR)
         embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/460869727129174027/461766170127892480/bot_png.png')
@@ -59,7 +62,7 @@ async def on_message(message):
         embed1.set_image(url=setar)
         embed1.add_field(name=f"{message.author.name}", value="Pronto, senhor(a) coloquei a imagem que você pediu para ser enviada no DM dos membros 🖤", inline=False)
         await client.send_message(message.channel, embed=embed1)
-
+ 
     if message.content.startswith('=anuncio'):
         msg = message.content[10:]
         role = discord.utils.get(message.server.roles, name=cargo)
